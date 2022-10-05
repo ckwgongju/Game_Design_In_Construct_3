@@ -36,6 +36,16 @@
 			"sid": 1620992456180981
 		},
 		{
+			"eventType": "variable",
+			"name": "SecondsPerPowerUp",
+			"type": "number",
+			"initialValue": "3.5",
+			"comment": "used to time powerup spawns",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 638757189194411
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Start",
@@ -638,6 +648,35 @@
 				{
 					"eventType": "comment",
 					"text": "At regular intervals, create new food powerups for the bird to collect. \n\nThese may be extra score, invincibility, slow time, etc. "
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 566713850013021,
+							"parameters": {
+								"interval-seconds": "SecondsPerPowerUp"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 542191968978149,
+							"parameters": {
+								"object-to-create": "food_sprite",
+								"layer": "0",
+								"x": "0",
+								"y": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 441498794010285
 				}
 			],
 			"sid": 298653776108631,
