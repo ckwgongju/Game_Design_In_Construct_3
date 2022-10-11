@@ -18,7 +18,8 @@
 					"uid": 13,
 					"instanceVariables": {
 						"IsEaten": false,
-						"Power_up_type": ""
+						"Power_up_type": "",
+						"food_type": 3
 					},
 					"behaviors": {},
 					"world": {

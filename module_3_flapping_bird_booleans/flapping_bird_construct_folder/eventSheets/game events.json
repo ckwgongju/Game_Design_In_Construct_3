@@ -742,9 +742,18 @@
 					],
 					"actions": [
 						{
+							"id": "set-instvar-value",
+							"objectClass": "food_sprite",
+							"sid": 486125948884430,
+							"parameters": {
+								"instance-variable": "food_type",
+								"value": "random(1,3)"
+							}
+						},
+						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 772984837277967,
+							"sid": 522028976086294,
 							"parameters": {
 								"object-to-create": "food_sprite",
 								"layer": "0",
@@ -753,19 +762,91 @@
 								"create-hierarchy": false,
 								"template-name": "\"\""
 							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "food_sprite",
-							"sid": 427621693829158,
-							"parameters": {
-								"animation": "\"banana\"",
-								"from": "beginning"
-							}
 						}
 					],
 					"sid": 441498794010285,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "food_sprite",
+									"sid": 991651466945388,
+									"parameters": {
+										"instance-variable": "food_type",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "food_sprite",
+									"sid": 652335061112438,
+									"parameters": {
+										"animation": "\"banana\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 180172187280233
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "food_sprite",
+									"sid": 807113352643836,
+									"parameters": {
+										"instance-variable": "food_type",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "food_sprite",
+									"sid": 824161496958245,
+									"parameters": {
+										"animation": "\"ham\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 771541872368357
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "food_sprite",
+									"sid": 960497078121466,
+									"parameters": {
+										"instance-variable": "food_type",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "food_sprite",
+									"sid": 737167857722648,
+									"parameters": {
+										"animation": "\"apple\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 727792711865095
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -835,9 +916,40 @@
 								"instance-variable": "invincible",
 								"value": "true"
 							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "food_sprite",
+							"sid": 949876306891329
 						}
 					],
 					"sid": 259059892518499
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Bird",
+							"sid": 309895581967592,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"invincible\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Bird",
+							"sid": 296324282767100,
+							"parameters": {
+								"instance-variable": "invincible",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 136684126822659
 				}
 			],
 			"sid": 298653776108631,

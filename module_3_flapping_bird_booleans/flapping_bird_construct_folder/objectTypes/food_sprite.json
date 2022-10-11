@@ -15,6 +15,12 @@
 			"type": "string",
 			"desc": "set the powerup type",
 			"sid": 175411833045676
+		},
+		{
+			"name": "food_type",
+			"type": "number",
+			"desc": "",
+			"sid": 945333243154177
 		}
 	],
 	"behaviorTypes": [],
