@@ -9,6 +9,12 @@
 			"type": "boolean",
 			"desc": "",
 			"sid": 161499337238456
+		},
+		{
+			"name": "invincible_speedup",
+			"type": "boolean",
+			"desc": "",
+			"sid": 208183121015503
 		}
 	],
 	"behaviorTypes": [
@@ -21,6 +27,11 @@
 			"behaviorId": "Timer",
 			"name": "Timer",
 			"sid": 285793335796290
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 777481084635044
 		}
 	],
 	"effectTypes": [],

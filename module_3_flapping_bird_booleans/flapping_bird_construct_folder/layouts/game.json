@@ -46,7 +46,8 @@
 					},
 					"uid": 0,
 					"instanceVariables": {
-						"invincible": false
+						"invincible": false,
+						"invincible_speedup": false
 					},
 					"behaviors": {
 						"Platform": {
@@ -64,6 +65,9 @@
 							}
 						},
 						"Timer": {
+							"properties": {}
+						},
+						"Flash": {
 							"properties": {}
 						}
 					},
