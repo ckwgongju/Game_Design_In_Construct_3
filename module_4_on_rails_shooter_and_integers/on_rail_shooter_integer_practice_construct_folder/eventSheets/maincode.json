@@ -1580,6 +1580,35 @@
 					"conditions": [],
 					"actions": [],
 					"sid": 219023901183184
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 710195102152344,
+							"parameters": {
+								"interval-seconds": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 761143466255568,
+							"parameters": {
+								"object-to-create": "Asteroid",
+								"layer": "1",
+								"x": "random(0+20, 320-20)",
+								"y": "random(0+20, 180-20)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 708438740275377
 				}
 			],
 			"sid": 703677530361462,
