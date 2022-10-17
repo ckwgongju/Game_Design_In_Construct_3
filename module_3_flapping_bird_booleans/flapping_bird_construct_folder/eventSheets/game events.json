@@ -125,9 +125,23 @@
 							"parameters": {
 								"angle": "320"
 							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 922137924930390,
+							"parameters": {
+								"time-scale": "1"
+							}
 						}
 					],
 					"sid": 2246972820014324
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 551886298893678
 				}
 			],
 			"sid": 2140906227666016,
@@ -707,6 +721,39 @@
 							"sid": 907351357176517
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Bird",
+							"sid": 329280111160682,
+							"parameters": {
+								"instance-variable": "invincible_speedup"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Bird",
+							"sid": 986929788370144,
+							"parameters": {
+								"instance-variable": "invincible",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 680235177392072,
+							"parameters": {
+								"time-scale": "1.5"
+							}
+						}
+					],
+					"sid": 549373821528172
 				}
 			],
 			"sid": 991508571897493,
@@ -1088,9 +1135,69 @@
 								"instance-variable": "invincible_speedup",
 								"value": "true"
 							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "Bird",
+							"sid": 279709622467639,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "3"
+							}
 						}
 					],
 					"sid": 169960669122891
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Bird",
+							"sid": 505133176682410,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"invincible+speedup\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Bird",
+							"sid": 842577316454867,
+							"parameters": {
+								"instance-variable": "invincible_speedup",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Bird",
+							"sid": 597004819460909,
+							"parameters": {
+								"instance-variable": "invincible",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 481381961668262,
+							"parameters": {
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "stop-flashing",
+							"objectClass": "Bird",
+							"sid": 535102574130004,
+							"behaviorType": "Flash"
+						}
+					],
+					"sid": 246620161743398
 				}
 			],
 			"sid": 298653776108631,
