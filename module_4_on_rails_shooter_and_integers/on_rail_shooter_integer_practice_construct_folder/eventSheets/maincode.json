@@ -1587,9 +1587,9 @@
 						{
 							"id": "every-x-seconds",
 							"objectClass": "System",
-							"sid": 710195102152344,
+							"sid": 286284435423018,
 							"parameters": {
-								"interval-seconds": "3"
+								"interval-seconds": "1"
 							}
 						}
 					],
@@ -1597,18 +1597,119 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 761143466255568,
+							"sid": 107510855020284,
 							"parameters": {
 								"object-to-create": "Asteroid",
 								"layer": "1",
-								"x": "random(0+20, 320-20)",
-								"y": "random(0+20, 180-20)",
+								"x": "random(20, 300)",
+								"y": "random(20, 160)",
 								"create-hierarchy": false,
 								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Asteroid",
+							"sid": 910678076337200,
+							"parameters": {
+								"instance-variable": "Speed",
+								"value": "random(1, 10)"
+							}
+						},
+						{
+							"id": "set-z-elevation",
+							"objectClass": "Asteroid",
+							"sid": 757784120694049,
+							"parameters": {
+								"z": "-100"
 							}
 						}
 					],
 					"sid": 708438740275377
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 104359824786531,
+							"parameters": {
+								"object": "Asteroid"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 275691808885782,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Asteroid",
+									"sid": 306048379134046,
+									"parameters": {
+										"object": "Ship"
+									}
+								},
+								{
+									"id": "is-between-values",
+									"objectClass": "System",
+									"sid": 197764638328070,
+									"parameters": {
+										"value": "Ship.ZElevation",
+										"lower-bound": "Asteroid.ZElevation-5",
+										"upper-bound": "Asteroid.ZElevation+5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Ship",
+									"sid": 811013505121985,
+									"parameters": {
+										"instance-variable": "Health",
+										"value": "2"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Ship",
+									"sid": 737442255975426,
+									"parameters": {
+										"animation": "\"collision\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 859655194881077
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Ship",
+							"sid": 573101744650473,
+							"parameters": {
+								"instance-variable": "Health",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Ship",
+							"sid": 477710552844050
+						}
+					],
+					"sid": 625484532728704
 				}
 			],
 			"sid": 703677530361462,
