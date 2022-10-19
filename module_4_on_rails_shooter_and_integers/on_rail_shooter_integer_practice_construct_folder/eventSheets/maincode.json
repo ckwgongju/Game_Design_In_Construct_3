@@ -1610,10 +1610,10 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Asteroid",
-							"sid": 910678076337200,
+							"sid": 873976293911128,
 							"parameters": {
 								"instance-variable": "Speed",
-								"value": "random(1, 10)"
+								"value": "random(1, 6)"
 							}
 						},
 						{
@@ -1710,6 +1710,21 @@
 						}
 					],
 					"sid": 625484532728704
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 917640873564368,
+							"parameters": {
+								"object": "Bullet"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 103432104885910
 				}
 			],
 			"sid": 703677530361462,
