@@ -136,6 +136,16 @@
 			"sid": 629497235077723
 		},
 		{
+			"eventType": "variable",
+			"name": "playerhealth",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 151392615437959
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "System",
@@ -1307,11 +1317,11 @@
 								{
 									"id": "is-between-values",
 									"objectClass": "System",
-									"sid": 892028403914872,
+									"sid": 949404328722331,
 									"parameters": {
 										"value": "Target.ZElevation",
-										"lower-bound": "Bullet.ZElevation-CollisionMargin",
-										"upper-bound": "Bullet.ZElevation+CollisionMargin"
+										"lower-bound": "Bullet.ZElevation-5",
+										"upper-bound": "Bullet.ZElevation+5"
 									}
 								}
 							],
@@ -1610,10 +1620,10 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Asteroid",
-							"sid": 873976293911128,
+							"sid": 347423331775219,
 							"parameters": {
 								"instance-variable": "Speed",
-								"value": "random(1, 6)"
+								"value": "random(1, 2)"
 							}
 						},
 						{
@@ -1662,13 +1672,21 @@
 										"lower-bound": "Asteroid.ZElevation-5",
 										"upper-bound": "Asteroid.ZElevation+5"
 									}
+								},
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 868786733355031,
+									"parameters": {
+										"interval-seconds": "1"
+									}
 								}
 							],
 							"actions": [
 								{
 									"id": "subtract-from-instvar",
 									"objectClass": "Ship",
-									"sid": 811013505121985,
+									"sid": 958542795834087,
 									"parameters": {
 										"instance-variable": "Health",
 										"value": "2"
@@ -1681,6 +1699,26 @@
 									"parameters": {
 										"animation": "\"collision\"",
 										"from": "beginning"
+									}
+								},
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 387768993209938,
+									"parameters": {
+										"variable": "playerhealth",
+										"value": "2"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Asteroid",
+									"sid": 935313360847120,
+									"parameters": {
+										"object": "BigExplosion",
+										"layer": "2",
+										"image-point": "0",
+										"create-hierarchy": false
 									}
 								}
 							],
@@ -1724,7 +1762,147 @@
 						}
 					],
 					"actions": [],
-					"sid": 103432104885910
+					"sid": 103432104885910,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Bullet",
+									"sid": 383411818140107,
+									"parameters": {
+										"object": "Asteroid"
+									}
+								},
+								{
+									"id": "is-between-values",
+									"objectClass": "System",
+									"sid": 824244360895862,
+									"parameters": {
+										"value": "Target.ZElevation",
+										"lower-bound": "Bullet.ZElevation-13",
+										"upper-bound": "Bullet.ZElevation+13"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Bullet",
+									"sid": 384034294854180
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Bullet",
+									"sid": 790862351765360,
+									"parameters": {
+										"object": "SmallHit",
+										"layer": "\"Ship\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-z-elevation",
+									"objectClass": "SmallHit",
+									"sid": 430458120995984,
+									"parameters": {
+										"z": "Bullet.ZElevation"
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "SmallHit",
+									"sid": 186112380864132,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Asteroid",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": true
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Asteroid",
+									"sid": 144871664093187,
+									"parameters": {
+										"instance-variable": "asteroid_health",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 160587681445257
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Asteroid",
+							"sid": 947565830715454,
+							"parameters": {
+								"instance-variable": "asteroid_health",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Asteroid",
+							"sid": 972678250375523
+						}
+					],
+					"sid": 696092669620105
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 150239947714044
+						}
+					],
+					"actions": [],
+					"sid": 365964746436775,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 168991798527160,
+									"parameters": {
+										"object": "Text",
+										"expression": "Text.FontID",
+										"comparison": 0,
+										"value": "\"Health\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 489431563646388,
+									"parameters": {
+										"text": "\"Health: \"&playerhealth"
+									}
+								}
+							],
+							"sid": 485697358840122
+						}
+					]
 				}
 			],
 			"sid": 703677530361462,

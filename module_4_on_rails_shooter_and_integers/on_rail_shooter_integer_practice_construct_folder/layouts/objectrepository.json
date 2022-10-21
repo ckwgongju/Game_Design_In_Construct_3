@@ -325,7 +325,7 @@
 					"uid": 12,
 					"instanceVariables": {
 						"Speed": 1,
-						"Health": 5
+						"asteroid_health": 2
 					},
 					"behaviors": {},
 					"world": {

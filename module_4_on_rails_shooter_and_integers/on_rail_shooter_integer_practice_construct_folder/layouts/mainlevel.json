@@ -100,6 +100,7 @@
 								"deceleration": 512,
 								"directions": "dir-8",
 								"set-angle": "no",
+								"allow-sliding": false,
 								"default-controls": false,
 								"enabled": true
 							}
@@ -276,7 +277,7 @@
 				{
 					"type": "Text",
 					"properties": {
-						"text": "Health: 10",
+						"text": "Heath: 10",
 						"enable-bbcode": true,
 						"character-width": 11,
 						"character-height": 16,
@@ -314,8 +315,8 @@
 						}
 					},
 					"world": {
-						"x": 32,
-						"y": 16,
+						"x": 33,
+						"y": 20,
 						"width": 240,
 						"height": 24,
 						"originX": 0,
