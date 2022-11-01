@@ -366,13 +366,208 @@
 			"title": "Dialogues",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [],
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "dialogue_trigger",
+							"sid": 297130805345231,
+							"parameters": {
+								"object": "Player_Base"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 463756125356753,
+							"parameters": {
+								"object-to-create": "Item_Arrow",
+								"layer": "2",
+								"x": "dialogue_trigger.X",
+								"y": "dialogue_trigger.Y-30",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "dialogue_trigger",
+							"sid": 951369292760030,
+							"parameters": {
+								"instance-variable": "Event",
+								"value": "true"
+							}
+						},
+						{
+							"type": "comment",
+							"text": "arrow appears when player overlaps dialogue trigger"
+						}
+					],
+					"sid": 644208702348702
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "dialogue_trigger",
+							"sid": 953631441727235,
+							"parameters": {
+								"object": "Player_Base"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Item_Arrow",
+							"sid": 249261945543638
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "dialogue_trigger",
+							"sid": 558116593013311,
+							"parameters": {
+								"instance-variable": "Event",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 351588103513987
+				}
+			],
 			"sid": 826736847142313,
 			"background-color": [
 				0.4392156862745098,
 				0.9176470588235294,
 				0.3411764705882353,
 				1
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": ""
+		},
+		{
+			"functionName": "dialogue_box",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "line",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 722329004519396
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 520426723218538,
+					"parameters": {
+						"object-to-create": "DialogueBox",
+						"layer": "3",
+						"x": "57",
+						"y": "122",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 473336962482386,
+					"parameters": {
+						"object-to-create": "Dialogue_Arrow",
+						"layer": "3",
+						"x": "DialogueBox.BBoxRight",
+						"y": "DialogueBox.BBoxBottom",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 627084531004212,
+					"parameters": {
+						"object-to-create": "SpriteFont_Dialogue",
+						"layer": "3",
+						"x": "DialogueBox.X",
+						"y": "DialogueBox.Y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "SpriteFont_Dialogue",
+					"sid": 913751991526712,
+					"parameters": {
+						"text": "\"line\""
+					}
+				},
+				{
+					"type": "comment",
+					"text": "show dialogue box"
+				}
+			],
+			"sid": 242346038782679
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 435370962805715,
+					"parameters": {
+						"key": 32
+					}
+				}
+			],
+			"actions": [],
+			"sid": 257797245663694,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "dialogue_trigger",
+							"sid": 926076925657041,
+							"parameters": {
+								"instance-variable": "Event"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "dialogue_box",
+							"sid": 584674465253430,
+							"parameters": [
+								"\"dialogue_trigger.Line\""
+							]
+						},
+						{
+							"type": "comment",
+							"text": "call dialogue box function if player is overlapping dialogue trigger and the space is pressed"
+						}
+					],
+					"sid": 236655942662147
+				}
 			]
 		}
 	],

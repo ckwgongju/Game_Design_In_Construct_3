@@ -638,6 +638,39 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "dialogue_trigger",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 3,
+					"instanceVariables": {
+						"character_name": "Jiho",
+						"Event": false,
+						"line": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 109.8504312966693,
+						"y": 97.56667467092316,
+						"width": 35.994743534146785,
+						"height": 31.509425461094267,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 6.280362807475259,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 509851701747363,

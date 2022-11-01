@@ -1,0 +1,56 @@
+{
+	"name": "dialogue_trigger",
+	"plugin-id": "Sprite",
+	"sid": 311132003644415,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "character_name",
+			"type": "string",
+			"desc": "",
+			"sid": 974884928785075
+		},
+		{
+			"name": "Event",
+			"type": "boolean",
+			"desc": "",
+			"sid": 375449968482405
+		},
+		{
+			"name": "line",
+			"type": "string",
+			"desc": "",
+			"sid": 810174227704176
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3507153,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 112304974122786,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

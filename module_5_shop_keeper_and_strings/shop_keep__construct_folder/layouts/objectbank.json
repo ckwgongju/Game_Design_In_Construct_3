@@ -2,7 +2,7 @@
 	"name": "ObjectBank",
 	"layers": [
 		{
-			"name": "Layer 0",
+			"name": "Objects",
 			"overriden": 0,
 			"subLayers": [],
 			"instances": [
