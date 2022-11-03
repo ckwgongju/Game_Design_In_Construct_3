@@ -8,18 +8,21 @@
 			"name": "character_name",
 			"type": "string",
 			"desc": "",
+			"show": true,
 			"sid": 974884928785075
 		},
 		{
 			"name": "Event",
 			"type": "boolean",
 			"desc": "",
+			"show": true,
 			"sid": 375449968482405
 		},
 		{
 			"name": "line",
 			"type": "string",
 			"desc": "",
+			"show": true,
 			"sid": 810174227704176
 		}
 	],
