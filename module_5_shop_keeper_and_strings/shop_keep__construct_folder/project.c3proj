@@ -194,7 +194,8 @@
 	"uniqueId": "eognipo1z5w",
 	"objectTypes": {
 		"items": [
-			"dialogue_trigger"
+			"dialogue_trigger",
+			"pickup_statue"
 		],
 		"subfolders": [
 			{

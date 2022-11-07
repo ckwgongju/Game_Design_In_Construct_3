@@ -557,9 +557,9 @@
 					"actions": [
 						{
 							"callFunction": "dialogue_box",
-							"sid": 832386382621983,
+							"sid": 720699908327927,
 							"parameters": [
-								"dialogue_trigger.Line"
+								"dialogue_trigger.line"
 							]
 						},
 						{
@@ -596,6 +596,90 @@
 						}
 					],
 					"sid": 187558442921635
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [],
+			"sid": 996069798202781
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [],
+			"sid": 260277420853371
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player_Base",
+					"sid": 485973141575808,
+					"parameters": {
+						"object": "pickup_statue"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "En_Statue",
+					"sid": 934675725934377
+				},
+				{
+					"callFunction": "dialogue_box",
+					"sid": 935115826407740,
+					"parameters": [
+						"\"Statue.\""
+					]
+				},
+				{
+					"type": "comment",
+					"text": "player can pick up item(statue)"
+				}
+			],
+			"sid": 815092505055498
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-destroyed",
+					"objectClass": "En_Statue",
+					"sid": 900817246741782
+				}
+			],
+			"actions": [],
+			"sid": 663005571559432
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "dialogue_box",
+					"sid": 446045067012746,
+					"parameters": [
+						"dialogue_trigger.line2"
+					]
+				}
+			],
+			"sid": 447271444171653,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 128165905853888
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 382107664518457
 				}
 			]
 		}

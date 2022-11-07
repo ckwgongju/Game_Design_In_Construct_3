@@ -24,6 +24,13 @@
 			"desc": "",
 			"show": true,
 			"sid": 810174227704176
+		},
+		{
+			"name": "line2",
+			"type": "string",
+			"desc": "change dialogue",
+			"show": true,
+			"sid": 469736631427742
 		}
 	],
 	"behaviorTypes": [],

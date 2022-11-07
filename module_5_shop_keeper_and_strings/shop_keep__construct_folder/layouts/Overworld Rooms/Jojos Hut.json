@@ -652,14 +652,15 @@
 					"instanceVariables": {
 						"character_name": "Jiho",
 						"Event": false,
-						"line": "Hi."
+						"line": "Bring me the statue and talk to me again.",
+						"line2": "Thank you !"
 					},
 					"behaviors": {},
 					"world": {
 						"x": 111.45540774516319,
 						"y": 111.26422474077268,
 						"width": 27.441029419327332,
-						"height": 31.442254839909495,
+						"height": 31.44225483990949,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -734,7 +735,8 @@
 					"instanceVariables": {
 						"character_name": "Ghost",
 						"Event": false,
-						"line": "..."
+						"line": "...",
+						"line2": "..."
 					},
 					"behaviors": {},
 					"world": {
@@ -815,7 +817,8 @@
 					"instanceVariables": {
 						"character_name": "skeleton",
 						"Event": false,
-						"line": "?"
+						"line": "?",
+						"line2": "?"
 					},
 					"behaviors": {},
 					"world": {
@@ -895,7 +898,8 @@
 					"instanceVariables": {
 						"character_name": "golem",
 						"Event": false,
-						"line": "Welcome."
+						"line": "Welcome.",
+						"line2": "Welcome."
 					},
 					"behaviors": {},
 					"world": {
@@ -975,12 +979,41 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 110.9424820851768,
-						"y": 192.57402732801765,
+						"x": 79.20810381719002,
+						"y": 194.56957996597774,
 						"width": 11.207701868975391,
 						"height": 22.765072761478848,
 						"originX": 0,
 						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "pickup_statue",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 24,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 89.54124560457754,
+						"y": 208.59776440300874,
+						"width": 6.659346181638796,
+						"height": 19.461225565150897,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
