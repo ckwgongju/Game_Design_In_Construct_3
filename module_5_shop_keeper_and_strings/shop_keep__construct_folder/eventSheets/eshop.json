@@ -488,7 +488,7 @@
 								},
 								{
 									"type": "comment",
-									"text": "When the player has picked up the statue, event2 changes the wizard's dialogue"
+									"text": "When the player has picked up the statue, has_statue changes the wizard's dialogue"
 								}
 							],
 							"sid": 928422178354072
