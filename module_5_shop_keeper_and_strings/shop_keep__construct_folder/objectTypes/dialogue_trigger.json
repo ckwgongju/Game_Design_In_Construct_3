@@ -19,7 +19,7 @@
 			"sid": 375449968482405
 		},
 		{
-			"name": "line",
+			"name": "line1",
 			"type": "string",
 			"desc": "",
 			"show": true,
@@ -31,6 +31,13 @@
 			"desc": "change dialogue",
 			"show": true,
 			"sid": 469736631427742
+		},
+		{
+			"name": "has_statue",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 582186997220163
 		}
 	],
 	"behaviorTypes": [],

@@ -373,42 +373,133 @@
 					"conditions": [
 						{
 							"id": "is-overlapping-another-object",
-							"objectClass": "dialogue_trigger",
-							"sid": 297130805345231,
+							"objectClass": "Player_Base",
+							"sid": 639496737376694,
 							"parameters": {
-								"object": "Player_Base"
+								"object": "pickup_statue"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 463756125356753,
-							"parameters": {
-								"object-to-create": "Item_Arrow",
-								"layer": "2",
-								"x": "dialogue_trigger.X",
-								"y": "dialogue_trigger.Y-30",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
+							"id": "destroy",
+							"objectClass": "En_Statue",
+							"sid": 914417814209560
 						},
 						{
-							"id": "set-boolean-instvar",
-							"objectClass": "dialogue_trigger",
-							"sid": 951369292760030,
-							"parameters": {
-								"instance-variable": "Event",
-								"value": "true"
-							}
+							"callFunction": "dialogue_box",
+							"sid": 420169714222698,
+							"parameters": [
+								"\"Statue.\""
+							]
 						},
 						{
 							"type": "comment",
-							"text": "arrow appears when player overlaps dialogue trigger"
+							"text": "player can pick up item(statue)"
 						}
 					],
-					"sid": 644208702348702
+					"sid": 838725578343543
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "dialogue_trigger",
+							"sid": 979301629505020,
+							"parameters": {
+								"object": "Player_Base"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 644208702348702,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "En_Statue",
+									"sid": 147552155444839
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 285186545699308,
+									"parameters": {
+										"object-to-create": "Item_Arrow",
+										"layer": "2",
+										"x": "dialogue_trigger.X",
+										"y": "dialogue_trigger.Y-30",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "dialogue_trigger",
+									"sid": 936366132518379,
+									"parameters": {
+										"instance-variable": "Event",
+										"value": "true"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "arrow appears when player overlaps dialogue trigger"
+								}
+							],
+							"sid": 340125487148278
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 906961779028092
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 347314485891517,
+									"parameters": {
+										"object-to-create": "Item_Arrow",
+										"layer": "2",
+										"x": "dialogue_trigger.X",
+										"y": "dialogue_trigger.Y-30",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "dialogue_trigger",
+									"sid": 112027267266203,
+									"parameters": {
+										"instance-variable": "has_statue",
+										"value": "true"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "When the player has picked up the statue, event2 changes the wizard's dialogue"
+								}
+							],
+							"sid": 928422178354072
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 117218862607114
 				},
 				{
 					"eventType": "block",
@@ -437,9 +528,24 @@
 								"instance-variable": "Event",
 								"value": "false"
 							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "dialogue_trigger",
+							"sid": 327549319607317,
+							"parameters": {
+								"instance-variable": "has_statue",
+								"value": "false"
+							}
 						}
 					],
 					"sid": 351588103513987
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 235937351052293
 				}
 			],
 			"sid": 826736847142313,
@@ -548,26 +654,79 @@
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "dialogue_trigger",
-							"sid": 926076925657041,
+							"sid": 806842789193682,
 							"parameters": {
 								"instance-variable": "Event"
 							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "dialogue_box",
-							"sid": 720699908327927,
-							"parameters": [
-								"dialogue_trigger.line"
-							]
 						},
 						{
-							"type": "comment",
-							"text": "call dialogue box function if player is overlapping dialogue trigger and the space is pressed"
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "dialogue_trigger",
+							"sid": 921433777713066,
+							"parameters": {
+								"instance-variable": "has_statue"
+							}
 						}
 					],
-					"sid": 236655942662147
+					"actions": [],
+					"sid": 158056049702798,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "dialogue_trigger",
+									"sid": 649152159276941,
+									"parameters": {
+										"instance-variable": "has_statue"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "dialogue_box",
+									"sid": 940999098704184,
+									"parameters": [
+										"dialogue_trigger.line2"
+									]
+								},
+								{
+									"type": "comment",
+									"text": "line2 is new instance variable with a new dialogue."
+								}
+							],
+							"sid": 812560374496199
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "dialogue_trigger",
+									"sid": 545480901444426,
+									"parameters": {
+										"instance-variable": "Event"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "dialogue_box",
+									"sid": 861714554373024,
+									"parameters": [
+										"dialogue_trigger.line1"
+									]
+								},
+								{
+									"type": "comment",
+									"text": "When Event is true(player is close to the character) and Space is pressed, the character says line1."
+								}
+							],
+							"sid": 740225319864487
+						}
+					],
+					"isOrBlock": true
 				},
 				{
 					"eventType": "block",
@@ -603,85 +762,7 @@
 			"eventType": "block",
 			"conditions": [],
 			"actions": [],
-			"sid": 996069798202781
-		},
-		{
-			"eventType": "block",
-			"conditions": [],
-			"actions": [],
-			"sid": 260277420853371
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-overlapping-another-object",
-					"objectClass": "Player_Base",
-					"sid": 485973141575808,
-					"parameters": {
-						"object": "pickup_statue"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "destroy",
-					"objectClass": "En_Statue",
-					"sid": 934675725934377
-				},
-				{
-					"callFunction": "dialogue_box",
-					"sid": 935115826407740,
-					"parameters": [
-						"\"Statue.\""
-					]
-				},
-				{
-					"type": "comment",
-					"text": "player can pick up item(statue)"
-				}
-			],
-			"sid": 815092505055498
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-destroyed",
-					"objectClass": "En_Statue",
-					"sid": 900817246741782
-				}
-			],
-			"actions": [],
-			"sid": 663005571559432
-		},
-		{
-			"eventType": "block",
-			"conditions": [],
-			"actions": [
-				{
-					"callFunction": "dialogue_box",
-					"sid": 446045067012746,
-					"parameters": [
-						"dialogue_trigger.line2"
-					]
-				}
-			],
-			"sid": 447271444171653,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 128165905853888
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 382107664518457
-				}
-			]
+			"sid": 591980227294486
 		}
 	],
 	"sid": 387105426428866

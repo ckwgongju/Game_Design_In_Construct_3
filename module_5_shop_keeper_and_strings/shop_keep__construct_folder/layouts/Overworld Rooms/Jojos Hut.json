@@ -652,8 +652,9 @@
 					"instanceVariables": {
 						"character_name": "Jiho",
 						"Event": false,
-						"line": "Bring me the statue and talk to me again.",
-						"line2": "Thank you !"
+						"line1": "Bring me the statue and talk to me again.",
+						"line2": "Thank you !",
+						"has_statue": false
 					},
 					"behaviors": {},
 					"world": {
@@ -735,8 +736,9 @@
 					"instanceVariables": {
 						"character_name": "Ghost",
 						"Event": false,
-						"line": "...",
-						"line2": "..."
+						"line1": "...",
+						"line2": "...",
+						"has_statue": false
 					},
 					"behaviors": {},
 					"world": {
@@ -817,8 +819,9 @@
 					"instanceVariables": {
 						"character_name": "skeleton",
 						"Event": false,
-						"line": "?",
-						"line2": "?"
+						"line1": "?",
+						"line2": "?",
+						"has_statue": false
 					},
 					"behaviors": {},
 					"world": {
@@ -898,8 +901,9 @@
 					"instanceVariables": {
 						"character_name": "golem",
 						"Event": false,
-						"line": "Welcome.",
-						"line2": "Welcome."
+						"line1": "Welcome.",
+						"line2": "Welcome.",
+						"has_statue": false
 					},
 					"behaviors": {},
 					"world": {
