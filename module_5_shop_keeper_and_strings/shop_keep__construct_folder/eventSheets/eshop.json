@@ -752,6 +752,10 @@
 							"id": "destroy",
 							"objectClass": "Dialogue_Arrow",
 							"sid": 566820558116194
+						},
+						{
+							"type": "comment",
+							"text": "If player has picked up statue, the character says line2 and if player hasn't picked up statue, the character says line1."
 						}
 					],
 					"sid": 187558442921635
